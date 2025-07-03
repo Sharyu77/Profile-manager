@@ -1,12 +1,8 @@
-# Profile-manager
-
 import json
 from datetime import datetime
 
-# File to store user data
 USER_FILE = "users.json"
 
-# Load users from JSON file
 def load_users():
     try:
         with open(USER_FILE, 'r') as file:
@@ -14,12 +10,10 @@ def load_users():
     except FileNotFoundError:
         return {}
 
-# Save users to JSON file
 def save_users(users):
     with open(USER_FILE, 'w') as file:
         json.dump(users, file, indent=4)
-
-# Add a new user
+        
 def add_user():
     users = load_users()
     user_id = input("Enter new User ID: ")
@@ -36,7 +30,6 @@ def add_user():
     save_users(users)
     print("User added successfully.")
 
-# Edit an existing user
 def edit_user():
     users = load_users()
     user_id = input("Enter User ID to edit: ")
@@ -50,7 +43,6 @@ def edit_user():
     save_users(users)
     print("User updated successfully.")
 
-# Delete a user
 def delete_user():
     users = load_users()
     user_id = input("Enter User ID to delete: ")
@@ -61,7 +53,6 @@ def delete_user():
     else:
         print("User not found.")
 
-# View a user's swap history
 def view_history():
     users = load_users()
     user_id = input("Enter User ID to view history: ")
@@ -76,7 +67,6 @@ def view_history():
     else:
         print("User not found.")
 
-# Simulate a battery swap and record it
 def simulate_swap():
     users = load_users()
     user_id = input("Enter User ID to simulate swap: ")
@@ -88,7 +78,6 @@ def simulate_swap():
     else:
         print("User not found.")
 
-# Main program loop
 def main():
     while True:
         print("\n--- EV User Profile Manager ---")
